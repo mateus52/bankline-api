@@ -1,6 +1,6 @@
 package com.dio.group.bankline.api.model;
 
-public enum MovimentaçãoTipo {
+public enum MovimentacaoTipo {
 
 	RECEITA, 
 	DESPESA

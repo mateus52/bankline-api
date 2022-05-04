@@ -2,13 +2,27 @@ package com.dio.group.bankline.api.model;
 
 import java.time.LocalDateTime;
 
-public class Movimentação {
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "tab_movimentacao")
+public class Movimentacao {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
 	private LocalDateTime dataHora;
 	private String descricao;
 	private Double valor;
-	private MovimentaçãoTipo tipo;
+	@Enumerated(EnumType.STRING)
+	private MovimentacaoTipo tipo;
 	
 	public Integer getId() {
 		return id;
@@ -34,10 +48,10 @@ public class Movimentação {
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
-	public MovimentaçãoTipo getTipo() {
+	public MovimentacaoTipo getTipo() {
 		return tipo;
 	}
-	public void setTipo(MovimentaçãoTipo tipo) {
+	public void setTipo(MovimentacaoTipo tipo) {
 		this.tipo = tipo;
 	}
 	
